@@ -27,7 +27,7 @@
       displayTheMenu();
 
       async function getMergedMenu() {
-        let response = await fetch(host + "/merger");
+        let response = await fetch(host);
         let menu = await response.json();
         return menu;
       }
@@ -36,10 +36,11 @@
         let menu = await getMergedMenu();
         for (let menuItem of menu) {
           let div = document.createElement("div");
-          div.className = "menu-item"; // Change 'class' to 'className'
+          div.className = "menu-item"; 
           div.innerHTML = `
                <div class="menu-item">
                 <div class="item-name">${menuItem.name}</div>
+                <div class="item-description">${menuItem.description}</div>
                 <div class="item-price">${menuItem.price}</div>
                </div>
                `;
